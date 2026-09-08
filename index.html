@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز الإنتاجية - إدارة المهام والمحاسبة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- القائمة العلوية -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">🚀 مركز الإنتاجية</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-btn" data-section="home">الرئيسية</a></li>
+                <li><a href="#tasks" class="nav-btn" data-section="tasks">إدارة المهام</a></li>
+                <li><a href="#accounting" class="nav-btn" data-section="accounting">المحاسبة المالية</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- الصفحة الرئيسية -->
+    <section id="home" class="section active">
+        <div class="container">
+            <div class="hero">
+                <h1>مرحباً بك في مركز الإنتاجية 👋</h1>
+                <p>تطبيق متكامل لإدارة مهامك وأموالك بكفاءة عالية</p>
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">📝</div>
+                        <h3>إدارة المهام</h3>
+                        <p>نظم مهامك اليومية وتابع إنجازاتك</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3>المحاسبة المالية</h3>
+                        <p>تحكم في دخلك ومصروفاتك بسهولة</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>التقارير</h3>
+                        <p>احصل على تقارير شاملة وتحليلات دقيقة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم إدارة المهام -->
+    <section id="tasks" class="section">
+        <div class="container">
+            <h2>📝 تطبيق إدارة المهام</h2>
+            
+            <div class="task-input-group">
+                <input type="text" id="taskInput" placeholder="أضف مهمة جديدة..." class="task-input">
+                <button id="addTaskBtn" class="btn btn-primary">إضافة المهمة</button>
+            </div>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="pending">قيد الانتظار</button>
+                <button class="filter-btn" data-filter="completed">مكتملة</button>
+            </div>
+
+            <ul id="taskList" class="task-list"></ul>
+            
+            <div class="task-stats">
+                <div class="stat">
+                    <span class="stat-label">إجمالي المهام:</span>
+                    <span id="totalTasks" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">المهام المكتملة:</span>
+                    <span id="completedTasks" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">قيد الانتظار:</span>
+                    <span id="pendingTasks" class="stat-value">0</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المحاسبة المالية -->
+    <section id="accounting" class="section">
+        <div class="container">
+            <h2>💰 نظام المحاسبة المالية</h2>
+            
+            <div class="accounting-input-group">
+                <div class="input-row">
+                    <input type="text" id="descriptionInput" placeholder="وصف العملية..." class="input-field">
+                    <input type="number" id="amountInput" placeholder="المبلغ..." class="input-field" step="0.01">
+                </div>
+                <div class="input-row">
+                    <select id="typeSelect" class="input-field">
+                        <option value="">اختر نوع العملية</option>
+                        <option value="income">دخل</option>
+                        <option value="expense">مصروف</option>
+                    </select>
+                    <input type="text" id="categoryInput" placeholder="الفئة..." class="input-field">
+                </div>
+                <button id="addTransactionBtn" class="btn btn-primary">إضافة العملية</button>
+            </div>
+
+            <div class="accounting-summary">
+                <div class="summary-card income">
+                    <h3>الدخل الإجمالي 📈</h3>
+                    <p id="totalIncome">0.00 ر.س</p>
+                </div>
+                <div class="summary-card expense">
+                    <h3>المصروفات الإجمالية 📉</h3>
+                    <p id="totalExpense">0.00 ر.س</p>
+                </div>
+                <div class="summary-card balance">
+                    <h3>الرصيد النهائي 💵</h3>
+                    <p id="balance">0.00 ر.س</p>
+                </div>
+            </div>
+
+            <div class="transactions-section">
+                <h3>سجل العمليات</h3>
+                <table class="transactions-table">
+                    <thead>
+                        <tr>
+                            <th>الوصف</th>
+                            <th>النوع</th>
+                            <th>الفئة</th>
+                            <th>المبلغ</th>
+                            <th>التاريخ</th>
+                            <th>الإجراء</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionsList"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <p>&copy; 2024 مركز الإنتاجية - جميع الحقوق محفوظة 🔒</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
